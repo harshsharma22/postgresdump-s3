@@ -3,7 +3,7 @@
 BACKUP_NAME="$(date -u +%Y-%m-%d_%H-%M-%S)_UTC.gz"
 echo "${Postgres_URI}"
 # Run backup
-pg_dump -d ${Postgres_URI} -N "airbytye_*" -T "airbytye_*" --format=t -f /backup/dump
+pg_dump -d ${Postgres_URI} --format=t -f /backup/dump
 # Compress backup
 # Upload backup
 #aws s3 cp "/backup/${BACKUP_NAME}" "s3://${S3_BUCKET}/${S3_PATH}/${BACKUP_NAME}"
